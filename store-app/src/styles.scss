@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../styles/variables.scss';
+@import "primeng/resources/themes/mira/theme.css";
+@import "primeng/resources/primeng.css";
 
 body, p, h1, h2, h3, h4{
     margin: 0;
@@ -19,6 +21,11 @@ app-root{
 .column{
     display: flex;
     flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
 }
 
 .mt-15{
