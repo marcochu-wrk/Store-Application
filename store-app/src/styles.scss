@@ -2,6 +2,7 @@
 @import '../styles/variables.scss';
 @import "primeng/resources/themes/mira/theme.css";
 @import "primeng/resources/primeng.css";
+@import "../styles/theme-overrides.scss";
 
 body, p, h1, h2, h3, h4{
     margin: 0;
@@ -46,6 +47,10 @@ app-root{
 
 .wrap{
     flex-wrap: wrap;
+}
+
+.gap-05{
+    gap: 0.5rem;
 }
 
 .gap-1{
