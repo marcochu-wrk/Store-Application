@@ -12,4 +12,18 @@
         [rowsPerPageOptions]="[5,10,20]"
         (onPageChange)="onPageChange($event)">
     </p-paginator>
+
+    <app-edit-popup
+    [product] = "selectedProduct"
+    [display]="displayEditPopup"
+    (confirm)="onConfirmEdit($event)"
+    header="Edit Product">
+    </app-edit-popup>
+
+    <app-edit-popup
+    [display]="displayAddPopup"
+    (confirm)="onConfirmAdd($event)"
+    header="Edit Product">
+    </app-edit-popup>
+
 </div>
