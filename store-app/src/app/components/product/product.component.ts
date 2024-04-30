@@ -1,24 +1,50 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, viewChild } from '@angular/core';
 import { Product } from '../../../types';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RatingModule, FormsModule, CommonModule],
+  imports: [RatingModule, FormsModule, CommonModule, ButtonModule, ConfirmPopupModule],
+  providers: [ConfirmationService],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
- @Input() product!: Product;
 
- @Output() productOutput: EventEmitter<Product> = new EventEmitter<Product>();
+  constructor(private confirmationService: ConfirmationService){}
+
+  @ViewChild('deleteButton') deleteButton: any;
+  @Input() product!: Product;
+
+  @Output() edit: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() delete: EventEmitter<Product> = new EventEmitter<Product>();
+
+  editProduct(){
+    this.edit.emit(this.product);
+  }
+  
+  confirmDelete(){
+    this.confirmationService.confirm({
+      target: this.deleteButton.nativeElement,
+      message: 'Are you sure you want to delete this product?',
+      accept: () => {
+        this.deleteProduct();
+      }
+    });
+  }
+
+  deleteProduct(){
+    this.delete.emit(this.product);
+  }
 
  ngOnInit(){
-  console.log("Product in product component:", this.product);
-  console.log("Product in product component Output:", this.productOutput);
-  this.productOutput.emit(this.product);
+
+  
  }
 }

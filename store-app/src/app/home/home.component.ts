@@ -5,6 +5,7 @@ import { ProductComponent } from '../components/product/product.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { CommonModule } from '@angular/common';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
+import { ButtonModule } from 'primeng/button';
 import { NotExpr } from '@angular/compiler';
 
 
@@ -12,7 +13,7 @@ import { NotExpr } from '@angular/compiler';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProductComponent, CommonModule, PaginatorModule, EditPopupComponent],
+  imports: [ProductComponent, CommonModule, PaginatorModule, EditPopupComponent, ButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -26,6 +27,18 @@ export class HomeComponent {
   rows: number = 5;
   displayEditPopup: boolean= false;
   displayAddPopup: boolean= false;
+
+  toggleEditPopup(product: Product){
+    this.selectedProduct = product;
+    this.displayEditPopup = true;
+  }
+  toggleDeletePopup(product: Product){
+
+  }
+  toggleAddPopup(){
+    this.displayAddPopup = true;
+  }
+
   selectedProduct: Product = {
     id:0,
     name:'',
