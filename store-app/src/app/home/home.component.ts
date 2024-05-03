@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, viewChild } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { Product, Products } from '../../types';
 import { ProductComponent } from '../components/product/product.component';
-import { PaginatorModule } from 'primeng/paginator';
+import { Paginator, PaginatorModule } from 'primeng/paginator';
 import { CommonModule } from '@angular/common';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
 import { ButtonModule } from 'primeng/button';
@@ -21,7 +21,7 @@ export class HomeComponent {
   constructor(
     private productsService:ProductsService
   ){ }
-
+  @ViewChild('paginator') paginator: Paginator | undefined;
   products: Product[] = [];
   totalRecords: number = 0;
   rows: number = 5;
@@ -89,6 +89,7 @@ export class HomeComponent {
         next: (data)=> {
           console.log(data)
           this.fetchProducts(0,this.rows);
+          this.resetPaginator();
         },
         error: (error)=> {
           console.log(error)
@@ -103,6 +104,7 @@ export class HomeComponent {
         next: (data) => {
           console.log(data);
           this.fetchProducts(0,this.rows);
+          this.resetPaginator();
         },
         error: (error) => {
           console.log(error);
@@ -117,6 +119,7 @@ export class HomeComponent {
         next: (data)=> {
           console.log(data);
           this.fetchProducts(0,this.rows);
+          this.resetPaginator();
         },
         error: (error)=>{
           console.log(error);
@@ -127,6 +130,10 @@ export class HomeComponent {
 
   onPageChange(event:any){
     this.fetchProducts(event.page, event.rows);
+  }
+
+  resetPaginator(){
+    this.paginator?.changePage(0);
   }
 
   ngOnInit(){

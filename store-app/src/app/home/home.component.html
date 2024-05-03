@@ -19,7 +19,8 @@
         [rows]="rows"
         [totalRecords]="totalRecords"
         [rowsPerPageOptions]="[5,10,20]"
-        (onPageChange)="onPageChange($event)">
+        (onPageChange)="onPageChange($event)"
+        #paginator>
     </p-paginator>
 
     <app-edit-popup
