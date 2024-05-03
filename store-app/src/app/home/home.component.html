@@ -1,4 +1,4 @@
-<div class="column gap-1">
+<div class="column gap-1 main-container">
     <button
         type="button"
         pButton
@@ -20,7 +20,8 @@
         [totalRecords]="totalRecords"
         [rowsPerPageOptions]="[5,10,20]"
         (onPageChange)="onPageChange($event)"
-        #paginator>
+        #paginator
+        styleClass="ng-paginator">
     </p-paginator>
 
     <app-edit-popup

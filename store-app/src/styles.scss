@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../styles/variables.scss';
-@import "primeng/resources/themes/mira/theme.css";
+@import "primeng/resources/themes/lara-light-purple/theme.css";
 @import "primeng/resources/primeng.css";
 @import "../styles/theme-overrides.scss";
 
@@ -8,8 +8,15 @@ body, p, h1, h2, h3, h4{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
+body{
+    background-color: #303030;
+}
+div{
+    color: white;
+}
 html, body, app-root{
     height: 100%;
 }
