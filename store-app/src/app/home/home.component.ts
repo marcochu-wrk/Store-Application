@@ -33,7 +33,10 @@ export class HomeComponent {
     this.displayEditPopup = true;
   }
   toggleDeletePopup(product: Product){
-
+    if(!product.id){
+      return
+    }
+    this.deleteProduct(product.id)
   }
   toggleAddPopup(){
     this.displayAddPopup = true;
@@ -48,7 +51,10 @@ export class HomeComponent {
   }
 
   onConfirmEdit(product: Product){
-    this.editProduct(product, this.selectedProduct.id ?? 0);
+    if(!this.selectedProduct.id){
+      return
+    }
+    this.editProduct(product, this.selectedProduct.id);
     this.displayEditPopup= false;
   }
 
@@ -78,7 +84,7 @@ export class HomeComponent {
   }
 
   editProduct(product:Product, id: number){
-    this.productsService.editProduct('http://localhost:3000/clothes/${id}',product).subscribe(
+    this.productsService.editProduct(`http://localhost:3000/clothes/${id}`,product).subscribe(
       {
         next: (data)=> {
           console.log(data)
@@ -92,13 +98,13 @@ export class HomeComponent {
   }
 
   deleteProduct(id:number){
-    this.productsService.deleteProduct('http://localhost:3000/clothes/${id}').subscribe(
+    this.productsService.deleteProduct(`http://localhost:3000/clothes/${id}`).subscribe(
       {
-        next: (data)=> {
+        next: (data) => {
           console.log(data);
           this.fetchProducts(0,this.rows);
         },
-        error: (error)=> {
+        error: (error) => {
           console.log(error);
         }
       }
@@ -106,7 +112,7 @@ export class HomeComponent {
   }
 
   addProduct(product:Product){
-    this.productsService.addProduct('http://localhost:3000/clothes/${id}',product).subscribe(
+    this.productsService.addProduct('http://localhost:3000/clothes',product).subscribe(
       {
         next: (data)=> {
           console.log(data);
