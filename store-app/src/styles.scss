@@ -4,11 +4,21 @@
 @import "primeng/resources/primeng.css";
 @import "../styles/theme-overrides.scss";
 
+@font-face {
+    font-family: 'mulish' ;
+    src: url('./assets/fonts/Mulish-VariableFont_wght.ttf') format('truetype');
+}
+
 body, p, h1, h2, h3, h4{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
+}
+
+p, button{
+    color: white;
+    font-family:"mulish";
 }
 
 body{

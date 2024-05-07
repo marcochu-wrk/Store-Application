@@ -1,20 +1,18 @@
-<p-dialog [header]="header" [(visible)]="display" [modal]="true" [closable]="false">
+<p-dialog [header]="header" [(visible)]="display" [modal]="true" [closable]="false" class="modal-style">
 
-    <div class="column gap-1">
-        <div class="rows gap-05">
-            <span class="price-label">Name:</span>
+    <div class="form-container">
+        <div class="form-row">
+            <span class="modal-style modal-format label price-label">Name: </span>
             <input type="text" [(ngModel)]="product.name"/>
         </div>
-    </div>
-    <div class="column gap-1">
-        <div class="rows gap-05">
-            <span class="price-label">Price:</span>
+   
+        <div class="form-row">
+            <span class="modal-style modal-format label price-label">Price: </span>
             <input type="text" [(ngModel)]="product.price"/>
         </div>
-    </div>
-    <div class="column gap-1">
-        <div class="rows gap-05">
-            <span class="price-label">Image:</span>
+    
+        <div class="form-row">
+            <span class="modal-style modal-format label price-label">Image: </span>
             <input type="text" [(ngModel)]="product.image"/>
         </div>
     </div>

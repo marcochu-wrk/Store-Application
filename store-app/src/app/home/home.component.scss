@@ -1,3 +1,46 @@
 ::ng-deep .ng-paginator {
     background-color: #303030;
 }
+::ng-deep .p-paginator-first{
+    color: white;
+}
+::ng-deep .p-paginator-first:hover{
+    background-color: #212121;
+}
+::ng-deep .p-paginator-prev{
+    color: white;
+}
+::ng-deep .p-paginator-prev:hover{
+    background-color: #212121;
+}
+::ng-deep .p-paginator-next{
+    color: white;
+}
+::ng-deep .p-paginator-next:hover{
+    background-color: #212121;
+}
+::ng-deep .p-paginator-last{
+    color: white;
+}
+::ng-deep .p-paginator-last:hover{
+    background-color: #212121;
+}
+::ng-deep .p-paginator-page{
+    color: white;
+}
+::ng-deep .p-paginator-page:hover{
+    background-color:#212121;    
+}
+::ng-deep .p-paginator-page.p-highlight{
+    color: #6D28D9;
+}
+::ng-deep .p-dropdown-trigger{
+    color: #212121;
+}
+
+.btn-top-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0.5rem;
+}

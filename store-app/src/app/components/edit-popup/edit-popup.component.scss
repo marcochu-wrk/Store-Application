@@ -1,0 +1,24 @@
+.modal-style{
+    color: #212121;
+}
+.modal-format{
+    padding: 0.5rem;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.label {
+    width: 100px;
+    margin-right: 10px;
+    text-align: right;
+}
+::ng-deep .p-dialog-title{
+    color: #212121;
+}
